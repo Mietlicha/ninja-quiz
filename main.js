@@ -21,6 +21,17 @@ form.addEventListener('submit', e => {
     }
   });
 
-  span.textContent = `${score} %`;
   result.setAttribute('class', 'result py-4 d-block bg-light text-center');
+  scrollTo(0, 0);
+
+  let output = 0;
+
+  const count = setInterval(() => {
+    if (output <= score) {
+      span.textContent = `${output} %`;
+      output++;
+    } else {
+      clearInterval(count);
+    }
+  }, 10);
 });
